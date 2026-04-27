@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "author": "SIT210 Task 3.1P",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-nano", "id": "arduino", "top": 273.6, "left": 181.9, "attrs": {} },
+    { "type": "wokwi-bh1750", "id": "bh1750", "top": 50, "left": 80, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -102.4,
+      "left": 442.4,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -63.8,
+      "left": -39.25,
+      "rotate": 270,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 147.4,
+      "left": -58.45,
+      "rotate": 270,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -205.2,
+      "left": -34.6,
+      "attrs": { "color": "white" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": 6, "left": -53.8, "attrs": { "color": "yellow" } }
+  ],
+  "connections": [
+    [ "bh1750:VCC", "arduino:3.3V", "red", [] ],
+    [ "bh1750:GND", "arduino:GND.1", "black", [] ],
+    [ "bh1750:SDA", "arduino:A4", "blue", [] ],
+    [ "bh1750:SCL", "arduino:A5", "yellow", [] ],
+    [ "ldr1:VCC", "arduino:5V", "red", [ "h48", "v585.6", "h-393.6" ] ],
+    [ "ldr1:GND", "arduino:GND.1", "black", [ "h28.8", "v431.6" ] ],
+    [ "arduino:4", "r1:1", "green", [ "v-76.8", "h-19.2", "v-230.4" ] ],
+    [ "r1:2", "led1:A", "green", [ "v0" ] ],
+    [
+      "led1:C",
+      "arduino:GND.1",
+      "green",
+      [ "h0.4", "v153.6", "h307.2", "v163.2", "h38.4", "v182.4" ]
+    ],
+    [ "arduino:5", "r2:1", "#8f4814", [ "v28.8", "h-288" ] ],
+    [ "r2:2", "led2:A", "#8f4814", [ "h0" ] ],
+    [ "led2:C", "arduino:GND.1", "#8f4814", [ "v326.4", "h298" ] ],
+    [ "ldr1:AO", "arduino:A0", "green", [ "h19.2", "v575.3" ] ]
+  ],
+  "dependencies": {}
+}
